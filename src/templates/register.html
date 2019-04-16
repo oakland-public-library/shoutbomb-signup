@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block title %}Shoutbomb Sign-up{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<p>Sign up to receive text notifications for your library account, sent to your mobile phone.</p>
+<form method=post>
+  <dl>
+    {{ render_field(form.phone) }}
+    {{ render_field(form.card) }}
+    <dt>Terms of Service:
+    <dd>Before you sign up, please acknowledge that, depending on your data and message services plan, message and data rates may apply when sending/receiving text messages. Message frequency varies by account.
+    {{ render_field(form.accept_tos) }}
+  </dl>
+  <p><input type=submit value=Register></p>
+</form>
+<p>To unregister from text notification services</p>
+{% endblock %}
+

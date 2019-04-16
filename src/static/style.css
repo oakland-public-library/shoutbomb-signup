@@ -1,0 +1,44 @@
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #222;
+  background-color: #0b4c76;
+  background-image: url("logo_muted.png");
+  background-repeat: repeat;
+}
+
+form {
+}
+
+input {
+  padding: 6px;
+  margin: 4px;
+  border: 1px solid #444;
+  border-radius: 3px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #222;
+  background-color: #fff;
+}
+
+#container {
+  max-width: 800px;
+  margin: 24px;
+  padding: 24px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.errors {color: green; }
+
+.important { color: #f00; }
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}

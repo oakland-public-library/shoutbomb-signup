@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Oakland Public Library - {% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="center">
+      <div id="container">
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+          {% block footer %}
+          <a href="https://oaklandlibrary.org">Oakland Public Library</a>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
