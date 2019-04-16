@@ -8,8 +8,9 @@
 <p>Sign up to receive text notifications for your library account, sent to your mobile phone.</p>
 <form method=post>
   <dl>
+    {{ render_field(form.lang) }}
     {{ render_field(form.phone) }}
-    {{ render_field(form.card) }}
+    {{ render_field(form.barcode) }}
     <dt>Terms of Service:
     <dd>Before you sign up, please acknowledge that, depending on your data and message services plan, message and data rates may apply when sending/receiving text messages. Message frequency varies by account.
     {{ render_field(form.accept_tos) }}
@@ -18,4 +19,3 @@
 </form>
 <p>To unregister from text notification services</p>
 {% endblock %}
-
