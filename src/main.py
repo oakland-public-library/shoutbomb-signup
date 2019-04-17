@@ -7,14 +7,9 @@ import smtplib
 import os
 smtp_host = os.environ['SMTP_HOST']
 smtp_user = os.environ['SMTP_USER']
-smtp_pass = os.environ['SMTP_PASS']
 shoutbomb_email = os.environ['SHOUTBOMB_EMAIL']
 
 app = Flask(__name__)
-
-import os
-SECRET_KEY = os.urandom(32)
-app.config['SECRET_KEY'] = SECRET_KEY
 
 def send_reg(form):
     lang_codes = {'en': 'WEBSIGNUP', 'es': 'WEBREGISTRESE'}
@@ -23,9 +18,7 @@ def send_reg(form):
     barcode = form.barcode.data
     subject = '({}+TWILIO+{}+{});'.format(lang, phone, barcode)
     message = 'Subject: {}\n\n'.format(subject)
-    
-    s = smtplib.SMTP_SSL(smtp_host)
-    s.login(smtp_user, smtp_pass)
+    s = smtplib.SMTP(smtp_host)
     s.sendmail(smtp_user, shoutbomb_email, message)
     s.quit()
 

@@ -16,7 +16,7 @@ COPY src /app
 
 WORKDIR /app
 
-EXPOSE 8000
+EXPOSE 80
 
-CMD ["gunicorn", "-w 4", "-b 0.0.0.0:8000", "main:app"]
+CMD ["gunicorn", "-w 4", "-b 0.0.0.0:80", "main:app"]
 
