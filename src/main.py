@@ -3,7 +3,6 @@ from wtforms import Form, StringField, BooleanField, RadioField
 from wtforms.validators import DataRequired, Length
 
 import smtplib
-from email.message import EmailMessage
 
 import os
 smtp_host = os.environ['SMTP_HOST']
@@ -23,15 +22,11 @@ def send_reg(form):
     phone = form.phone.data
     barcode = form.barcode.data
     subject = '({}+TWILIO+{}+{});'.format(lang, phone, barcode)
-
-    msg = EmailMessage()
-    msg['From'] = smtp_user
-    msg['To'] = shoutbomb_email
-    msg['Subject'] = subject
-
+    message = 'Subject: {}\n\n'.format(subject)
+    
     s = smtplib.SMTP_SSL(smtp_host)
     s.login(smtp_user, smtp_pass)
-    s.send_message(msg)
+    s.sendmail(smtp_user, shoutbomb_email, message)
     s.quit()
 
 class RegForm(Form):
