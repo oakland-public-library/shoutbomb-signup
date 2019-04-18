@@ -41,14 +41,3 @@ def login():
         send_reg(form)
         return render_template('success.html', form=form)
     return render_template('register.html', form=form)
-
-@app.route('/', methods=['GET', 'POST'])
-def root():
-    form = RegForm(request.form)
-    if not request.form:
-        form.lang.default = 'en'
-        form.process()
-    if request.method == 'POST' and form.validate():
-        send_reg(form)
-        return render_template('success.html', form=form)
-    return render_template('index.html', form=form)
