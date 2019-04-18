@@ -5,17 +5,18 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<p>Sign up to receive text notifications for your library account, sent to your mobile phone.</p>
+<h2>Text Notification Sign-up Form</h2>
+<p>Sign up to receive text notifications for your library account, sent to your mobile phone. More information about this service can be found <a href="http://oaklandlibrary.org">on our website</a>.</p>
 <form method=post>
-  <dl>
+  <fieldset>
     {{ render_field(form.lang) }}
-    {{ render_field(form.phone) }}
-    {{ render_field(form.barcode) }}
-    <dt>Terms of Service:
-    <dd>Before you sign up, please acknowledge that, depending on your data and message services plan, message and data rates may apply when sending/receiving text messages. Message frequency varies by account.
+    {{ render_field(form.phone) }}{{ render_field(form.barcode) }}
+  </fieldset>
+  <h4>Service Usage:</h4>
+  <p>Before you sign up, please acknowledge that, depending on your data and message services plan, message and data rates may apply when sending/receiving text messages. Message frequency varies by account.</p>
+  <fieldset>
     {{ render_field(form.accept_tos) }}
-  </dl>
-  <p><input type=submit value=Register></p>
+  </fieldset>
+  <p><input type=submit value=Sign&nbsp;up></p>
 </form>
-<p>To unregister from text notification services</p>
 {% endblock %}

@@ -28,7 +28,7 @@ class RegForm(Form):
                         [DataRequired(), Length(min=10, max=10)])
     barcode = StringField('Library Card Number',
                           [DataRequired(), Length(min=14, max=14)])
-    accept_tos = BooleanField('I accept the terms of service',
+    accept_tos = BooleanField('Click here to acknowledge',
                               [DataRequired()])
 
 @app.route('/shoutbomb', methods=['GET', 'POST'])
@@ -41,3 +41,14 @@ def login():
         send_reg(form)
         return render_template('success.html', form=form)
     return render_template('register.html', form=form)
+
+@app.route('/', methods=['GET', 'POST'])
+def root():
+    form = RegForm(request.form)
+    if not request.form:
+        form.lang.default = 'en'
+        form.process()
+    if request.method == 'POST' and form.validate():
+        send_reg(form)
+        return render_template('success.html', form=form)
+    return render_template('index.html', form=form)
