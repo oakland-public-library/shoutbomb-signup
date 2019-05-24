@@ -25,11 +25,10 @@ def send_reg(form):
 class RegForm(Form):
     lang = RadioField('Language', choices=[('en','English'), ('es','Español')])
     phone = StringField('Mobile Phone Number',
-                        [DataRequired(), Length(min=10, max=10)])
+                        [DataRequired(), Length(min=10, max=10, message='Please enter your 10-digit mobile phone number as 1234567890 without parentheses, dashes, and spaces.')])
     barcode = StringField('Library Card Number',
-                          [DataRequired(), Length(min=14, max=14)])
-    accept_tos = BooleanField('Click here to acknowledge',
-                              [DataRequired()])
+                          [DataRequired(), Length(min=14, max=14, message='Please enter your 14-digit library card number, without spaces.')])
+    accept_tos = BooleanField('Click here to acknowledge', [DataRequired()])
 
 @app.route('/shoutbomb', methods=['GET', 'POST'])
 def login():

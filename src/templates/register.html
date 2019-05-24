@@ -9,13 +9,22 @@
 <p>Sign up to receive text notifications for your library account, sent to your mobile phone. More information about this service can be found <a href="http://oaklandlibrary.org/textupdates">on our website</a>.</p>
 <form method=post>
   <fieldset>
-    {{ render_field(form.lang) }}
-    {{ render_field(form.phone) }}{{ render_field(form.barcode) }}
+    <dt>{{ form.lang.label }}</dt>
+    <p>Select the language used for messages sent to your mobile phone:</p>
+    <p>
+      {% for field in form.lang %}
+      <span class="sublabel">{{ field.label }} {{ field }}</span>
+      {% endfor %}
+    </p>
+    {{ render_field(form.phone) }}
+    {{ render_field(form.barcode) }}
   </fieldset>
   <h4>Service Usage Acknowledgement:</h4>
-  <p>Before you sign up, please acknowledge that, depending on your data and message services plan, message and data rates may apply when sending/receiving text messages. Message frequency varies by account.</p>
+  <p>Before you sign up, please acknowledge that, depending on your data and message services plan, message and data rates may apply when sending/receiving text messages. Message frequency varies by account activity.</p>
   <fieldset>
-    {{ render_field(form.accept_tos) }}
+    <p>
+      <span class="sublabel">{{ form.accept_tos.label }} {{ form.accept_tos }}</span>
+    </p>
   </fieldset>
   <p><input type=submit value=Sign&nbsp;up></p>
 </form>

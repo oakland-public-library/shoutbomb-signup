@@ -19,3 +19,26 @@ a {
     color: #57a3cf;
     text-decoration: none;
 }
+
+.sublabel {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.sublabel label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.sublabel input {
+  vertical-align: -0.2rem;
+  margin-left: 0.4rem;
+  margin-right: 2.5rem;
+}
+
+.errors {
+  color: #e45;
+  font-style: italic;
+  /* font-weight: bold; */
+  font-size: 1.2em;
+}
